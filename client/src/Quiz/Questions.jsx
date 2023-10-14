@@ -48,21 +48,31 @@ function Questions() {
   }
 
 
+
+
   return (
     <>
+    {
 
-      <div className="flex justify-center bg-gray-100 py-12">
-      <div className="w-2/4 bg-white p-4 shadow-md rounded-lg">
-        <video
-          className="w-full h-auto rounded-lg"
-          controls
-          controlsList="nodownload nofullscreen"
-          loop
-          src={video}
-          type="video/mp4"
-        />
+      question ? 
+      <>
+      {
+        video &&
+        <div className="flex justify-center bg-gray-100 py-12">
+        <div className="w-2/4 bg-white p-4 shadow-md rounded-lg">
+          <video
+            className="w-full h-auto rounded-lg"
+            controls
+            controlsList="nodownload nofullscreen"
+            loop
+            autoPlay 
+            src={video}
+            type="video/mp4"
+          />
+        </div>
       </div>
-    </div>
+      
+      }
 
 
       <Timer selectedOption={Answer} quizId={id}/>
@@ -99,6 +109,14 @@ function Questions() {
           </form>
         </div>
       </div>
+      </>
+      :
+      <div className="flex justify-center bg-gray-100 py-12">
+      <div className="w-2/4 bg-white p-4 shadow-md rounded-lg">
+        No Quiz Available  
+      </div>
+    </div>
+    }
     </>
   );
 }
